@@ -41,7 +41,7 @@ def print_footer(students)
 end
 
 def names_starting_letter(students)
-  puts "Enter letter"
+  puts "Enter letter to print names beginning with that letter"
   letter = gets.chomp.capitalize!
   students.each { |student|
     if student[:name].start_with?(letter)
@@ -50,9 +50,18 @@ def names_starting_letter(students)
   }
 end
 
+def print_names_u12(students)
+  puts "All student with names under 12 characters"
+  students.each { |student|
+    if student[:name].length < 12
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  }
+end
 
 students = input_students
 print_header
 print_names(students)
 print_footer(students)
+print_names_u12(students)
 names_starting_letter(students)
