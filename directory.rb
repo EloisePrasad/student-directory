@@ -32,9 +32,7 @@ end
 
 def print_names(students)
   students.each_with_index { |student, index|
-    if student[:name].start_with?("D")
     puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
   }
 end
 
@@ -42,7 +40,19 @@ def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
 
+def names_starting_letter(students)
+  puts "Enter letter"
+  letter = gets.chomp.capitalize!
+  students.each { |student|
+    if student[:name].start_with?(letter)
+      puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  }
+end
+
+
 students = input_students
 print_header
 print_names(students)
 print_footer(students)
+names_starting_letter(students)
