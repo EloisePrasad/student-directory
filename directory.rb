@@ -32,9 +32,9 @@ end
 
 def print_names(students)
   students.each_with_index { |student, index|
-    # if student[:name].start_with?("D")
+    if student[:name].start_with?("D")
     puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  # end
+    end
   }
 end
 
