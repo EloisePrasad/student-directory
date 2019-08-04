@@ -13,14 +13,18 @@
 #   {name: "Norman Bates", cohort: :november}
 # ]
 def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
   students = []
-  name = gets.chomp
-  while !name.empty? do
-    students << {name: name, cohort: :november}
-    puts "Now we have #{students.count} students"
+  while true do
+    puts "Please enter the name of the student you want to add"
+    puts "To finish, just hit return twice"
     name = gets.chomp
+    if name.empty?
+      break
+    end
+    puts "Enter country of birth"
+    country = gets.chomp
+    students << {name: name, cohort: :november, cob: country}
+    puts "Now we have #{students.count} students"
   end
   students
 end
@@ -31,9 +35,16 @@ def print_header
 end
 
 def print_names(students)
-  students.each_with_index { |student, index|
-    puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  }
+x = 0
+  while true
+    print "#{x + 1} #{students[x][:name]} (#{students[x][:cohort]} cohort) Country of Birth: #{students[x][:cob]}"
+    puts
+    x += 1
+    break if x == students.length
+  end
+  # students.each_with_index { |student, index|
+  #   puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  # }
 end
 
 def print_footer(students)
@@ -63,5 +74,5 @@ students = input_students
 print_header
 print_names(students)
 print_footer(students)
-print_names_u12(students)
-names_starting_letter(students)
+# print_names_u12(students)
+# names_starting_letter(students)
