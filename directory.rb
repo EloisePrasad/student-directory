@@ -30,14 +30,14 @@ def input_students
 end
 
 def print_header
-  puts "The students of the Villains Academy"
-  puts "----------"
+  puts "The students of the Villains Academy".center(60)
+  puts "----------".center(35)
 end
 
 def print_names(students)
 x = 0
   while true
-    print "#{x + 1} #{students[x][:name]} (#{students[x][:cohort]} cohort) Country of Birth: #{students[x][:cob]}"
+    print "#{x + 1} #{students[x][:name]} (#{students[x][:cohort]} cohort) Country of Birth: #{students[x][:cob]}".center(70)
     puts
     x += 1
     break if x == students.length
